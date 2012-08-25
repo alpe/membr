@@ -1,0 +1,23 @@
+%h1 Listing members
+
+%table
+  %tr
+    %th Firstname
+    %th Lastname
+    %th Ic number
+    %th
+    %th
+    %th
+
+  - @members.each do |member|
+    %tr
+      %td= member.firstname
+      %td= member.lastname
+      %td= member.ic_number
+      %td= link_to 'Show', member
+      %td= link_to 'Edit', edit_member_path(member)
+      %td= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Member', new_member_path

@@ -1,5 +1,9 @@
-Membr::Application.routes.draw do
-  # The priority is based upon order of creation:
+Membr::Application.routes.draw do  # The priority is based upon order of creation:
+
+  root :to => 'members#index'
+
+  resources :members
+
   # first created -> highest priority.
 
   # Sample of regular route:

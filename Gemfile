@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
+gem 'haml-rails', '>= 0.3.4'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -41,6 +42,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'launchy' 
 end
 
 group :test, :development do

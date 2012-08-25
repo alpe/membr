@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Firstname:
+  = @member.firstname
+%p
+  %b Lastname:
+  = @member.lastname
+%p
+  %b Ic number:
+  = @member.ic_number
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path
