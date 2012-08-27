@@ -14,9 +14,11 @@
 ActiveRecord::Schema.define(:version => 20120823064445) do
 
   create_table "members", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "name"
+    t.date     "doj"
     t.string   "ic_number"
+    t.integer  "donation"
+    t.string   "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

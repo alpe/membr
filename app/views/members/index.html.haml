@@ -11,8 +11,7 @@
 
   - @members.each do |member|
     %tr
-      %td= member.firstname
-      %td= member.lastname
+      %td= member.name
       %td= member.ic_number
       %td= link_to 'Show', member
       %td= link_to 'Edit', edit_member_path(member)

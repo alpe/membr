@@ -1,14 +1,20 @@
 %p#notice= notice
 
 %p
-  %b Firstname:
-  = @member.firstname
-%p
-  %b Lastname:
-  = @member.lastname
+  %b Name:
+  = @member.name
 %p
   %b Ic number:
   = @member.ic_number
+%p
+  %b D.O.J
+  = @member.doj
+%p
+  %b Donation
+  = @member.donation
+%p
+  %b Phone
+  = @member.phone
 
 = link_to 'Edit', edit_member_path(@member)
 \|

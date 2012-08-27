@@ -7,13 +7,19 @@
           %li= msg
 
   .field
-    = f.label :firstname
-    = f.text_field :firstname
-  .field
-    = f.label :lastname
-    = f.text_field :lastname
+    = f.label :name
+    = f.text_field :name
   .field
     = f.label :ic_number
     = f.text_field :ic_number
+  .field
+    = f.label :doj
+    = f.text_field :doj
+  .field
+    = f.label :donation
+    = f.text_field :donation
+  .field
+    = f.label :phone
+    = f.text_field :phone
   .actions
     = f.submit 'Save'

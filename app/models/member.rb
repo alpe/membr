@@ -1,3 +1,3 @@
 class Member < ActiveRecord::Base
-  attr_accessible :firstname, :ic_number, :lastname
+  attr_accessible :name, :ic_number, :doj, :donation, :phone
 end
