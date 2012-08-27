@@ -8,6 +8,5 @@ Feature: Add members
       | doj       | 30/01/1970    |
       | donation  | 20            |
       | phone     | 9887 3434     |
-    Then show me the page
     Then I see a confirmation of the member's details
 
