@@ -1,10 +1,13 @@
 %h1 Listing members
 
+= link_to 'Add New Member', new_member_path
+
 %table
   %tr
-    %th Firstname
-    %th Lastname
+    %th Name
     %th Ic number
+    %th Phone
+    %th Donation
     %th
     %th
     %th
@@ -13,10 +16,10 @@
     %tr
       %td= member.name
       %td= member.ic_number
+      %td= member.phone
+      %td= member.donation
       %td= link_to 'Show', member
       %td= link_to 'Edit', edit_member_path(member)
       %td= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete
 
-%br
 
-= link_to 'New Member', new_member_path

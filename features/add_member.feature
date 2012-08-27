@@ -1,4 +1,4 @@
-Feature: Add members
+Feature: Manage members
 
   Scenario: Add a new member
     Given I chose to add a new member
@@ -9,4 +9,9 @@ Feature: Add members
       | donation  | 20            |
       | phone     | 9887 3434     |
     Then I see a confirmation of the member's details
+
+  Scenario: List members
+    Given a member exists
+    And I am on the members page
+    Then I see a list view of the members details
 
