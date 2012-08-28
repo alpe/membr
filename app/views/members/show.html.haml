@@ -15,6 +15,11 @@
 %p
   %b Phone:
   = @member.phone
+%p
+  %b Address:
+  = @member.address.line1
+  = @member.address.line2
+  = @member.address.postcode
 
 = link_to 'Edit', edit_member_path(@member)
 \|

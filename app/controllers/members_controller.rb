@@ -25,6 +25,7 @@ class MembersController < ApplicationController
   # GET /members/new.json
   def new
     @member = Member.new
+    @member.build_address
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(params[:member])
+    @member.build_address(params[:address])
 
     respond_to do |format|
       if @member.save

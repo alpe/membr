@@ -12,31 +12,24 @@ Given /^a member exists$/ do
 end
 
 When /^I add a new member with details:$/ do |table|
-  data = table.rows_hash
-  @name = data['name']
-  @ic_number = data['ic_number']
-  @doj = data['doj']
-  @donation = data['donation']
-  @phone = data['phone']
-  fill_in('member_name', :with => @name)
-  fill_in('member_ic_number', :with => @ic_number)
-  fill_in('member_doj', :with => @doj)
-  fill_in('member_donation', :with => @donation)
-  fill_in('member_phone', :with => @phone)
+  @data = table.rows_hash
+  [ :name, :ic_number, :doj, :donation, :phone ].each do |attr|
+    fill_in("member_#{attr}", :with => @data[attr.to_s])
+  end
+  [ :line1, :line2, :postcode ].each do |attr|
+    fill_in("address_#{attr}", :with => @data[attr.to_s])
+  end
   click_button('Save')
 end
 
 Then /^I see a confirmation of the member's details$/ do
-  page.should have_content(@name)
-  page.should have_content(@ic_number)
-  page.should have_content(@doj)
-  page.should have_content(@donation)
-  page.should have_content(@phone)
+  [ :name, :ic_number, :doj, :donation, :phone, :line1, :line2, :postcode ].each do |attr|
+    page.should have_content(@data[attr.to_s])
+  end
 end
 
 Then /^I see a list view of the members details$/ do
-  page.should have_content(@member.name)
-  page.should have_content(@member.ic_number)
-  page.should have_content(@member.donation)
-  page.should have_content(@member.phone)
+  [ :name, :ic_number, :donation, :phone ].each do |attr|
+    page.should have_content(@member.send(attr))
+  end
 end

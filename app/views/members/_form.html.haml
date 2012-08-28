@@ -21,5 +21,15 @@
   .field
     = f.label :phone
     = f.text_field :phone
-  .actions
+  = fields_for @member.address do |af|
+    .field
+      = af.label :line1, "Addr Line 1"
+      = af.text_field :line1
+    .field
+      = af.label :line2, "Addr Line 2"
+      = af.text_field :line2
+    .field
+      = af.label :postcode
+      = af.text_field :postcode
+    .actions
     = f.submit 'Save'
