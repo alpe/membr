@@ -13,7 +13,10 @@ end
 
 When /^I add a new member with details:$/ do |table|
   @data = table.rows_hash
-  [ :name, :ic_number, :doj, :donation, :phone ].each do |attr|
+  [ :name, :ic_number, :doj, :donation, :phone,
+    :family_members_attributes_0_name,
+    :family_members_attributes_1_name,
+  ].each do |attr|
     fill_in("member_#{attr}", :with => @data[attr.to_s])
   end
   [ :line1, :line2, :postcode ].each do |attr|
@@ -23,13 +26,8 @@ When /^I add a new member with details:$/ do |table|
 end
 
 Then /^I see a confirmation of the member's details$/ do
-  [ :name, :ic_number, :doj, :donation, :phone, :line1, :line2, :postcode ].each do |attr|
-    page.should have_content(@data[attr.to_s])
+  @data.values.each do |value|
+    page.should have_content(value)
   end
 end
 
-Then /^I see a list view of the members details$/ do
-  [ :name, :ic_number, :donation, :phone ].each do |attr|
-    page.should have_content(@member.send(attr))
-  end
-end

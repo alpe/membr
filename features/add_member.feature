@@ -12,11 +12,9 @@ Feature: Manage members
       | line1     | Blk 35 Mandalay Road      |
       | line2     | # 13–37 Mandalay Towers   |
       | postcode  | 308215                    |
+      | family_members_attributes_0_name | Aisyah  |
+      | family_members_attributes_1_name | Taufik  |
     Then I see a confirmation of the member's details
     Then show me the page
 
-  Scenario: List members
-    Given a member exists
-    And I am on the members page
-    Then I see a list view of the members details
 

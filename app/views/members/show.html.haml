@@ -20,6 +20,9 @@
   = @member.address.line1
   = @member.address.line2
   = @member.address.postcode
+%p
+  %b Family Members:
+  = @member.family_members.map(&:name).join(",")
 
 = link_to 'Edit', edit_member_path(@member)
 \|

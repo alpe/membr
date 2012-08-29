@@ -26,6 +26,9 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.build_address
+    5.times do
+      @member.family_members.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +44,7 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
+    puts params.inspect
     @member = Member.new(params[:member])
     @member.build_address(params[:address])
 
