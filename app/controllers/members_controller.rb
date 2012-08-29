@@ -44,7 +44,7 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    puts params.inspect
+    params[:member][:family_members_attributes].delete_if { |num,fm| fm[:name].blank? }
     @member = Member.new(params[:member])
     @member.build_address(params[:address])
 

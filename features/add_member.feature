@@ -1,6 +1,5 @@
 Feature: Manage members
 
-  @wip  
   Scenario: Add a new member
     Given I chose to add a new member
     When I add a new member with details:
@@ -15,6 +14,5 @@ Feature: Manage members
       | family_members_attributes_0_name | Aisyah  |
       | family_members_attributes_1_name | Taufik  |
     Then I see a confirmation of the member's details
-    Then show me the page
 
 
