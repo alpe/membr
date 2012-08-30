@@ -3,4 +3,6 @@ class Member < ActiveRecord::Base
   has_one :address
   has_many :family_members
   accepts_nested_attributes_for :family_members, :allow_destroy => true
+
+  validates_presence_of :name, :ic_number, :doj, :donation, :address
 end
