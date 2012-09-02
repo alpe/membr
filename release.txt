@@ -1,4 +1,5 @@
-- validations
+- validations - DONE
+- add pintar plus to edit form
 - add home phone, hand phone
 - date joined (pre-populate with today)
 - add remarks
