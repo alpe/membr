@@ -1,3 +1,6 @@
+-# hack to display extra blank family member fields
+- (5 - @member.family_members.size).times { @member.family_members.build }
+
 %h1 New member
 
 = render 'form'

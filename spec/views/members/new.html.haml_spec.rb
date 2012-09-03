@@ -1,22 +1,28 @@
 require 'spec_helper'
 
 describe "members/new" do
-  before(:each) do
-    assign(:member, stub_model(Member,
-      :firstname => "MyString",
-      :lastname => "MyString",
-      :ic_number => "MyString"
-    ).as_new_record)
+  let(:member) { Member.new }
+  before do
+    member.build_address
+    assign(:member, member)
   end
 
-  it "renders new member form" do
+  it "contains 5 input fields for family members" do
     render
 
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => members_path, :method => "post" do
-      assert_select "input#member_firstname", :name => "member[firstname]"
-      assert_select "input#member_lastname", :name => "member[lastname]"
-      assert_select "input#member_ic_number", :name => "member[ic_number]"
+    5.times do |i|
+      assert_select "#member_family_members_attributes_#{i}_name"
+    end
+  end
+
+  it "has 5 family member fields including previously entered ones like after validation error" do
+    member.family_members.build(:name => "Gerald")
+
+    render
+    #puts  response_from_page
+    assert_select "#member_family_members_attributes_0_name[value=Gerald]"
+    4.times do |i|
+      assert_select "#member_family_members_attributes_#{i+1}_name"
     end
   end
 end

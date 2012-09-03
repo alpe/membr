@@ -38,18 +38,5 @@ describe MembersController do
       family_members.count.should  == 1
       family_members.first.name.should == "Mustafa"
     end
-
-    context "there are validation errors" do
-      let(:invalid_member_params) {
-        valid_member_params.merge({ :name => "" })
-      }
-
-      it "contains entered family member fields if there were validation errors" do
-        do_create_with_member_params invalid_member_params
-
-        family_members = assigns(:member).family_members
-        family_members.count.should  == 1
-      end
-    end
   end
 end
