@@ -1,8 +1,11 @@
 Membr::Application.routes.draw do  # The priority is based upon order of creation:
 
-  root :to => 'members#index'
+  root :to => 'search#search'
 
   resources :members
+
+  match 'search' => 'search#search'
+  match 'export' => 'export#export'
 
   # first created -> highest priority.
 
