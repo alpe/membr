@@ -10,7 +10,8 @@ describe Member do
       :donation => 20,
     }}
     let (:addr_params) {{
-      :line1 => "Foo St"
+      :line1 => "Foo St",
+      :postcode => "12345"
     }}
 
     it "is valid with valid attributes" do
@@ -19,16 +20,28 @@ describe Member do
       m.valid?.should be_true
     end
 
-    [:name, :ic_number, :doj, :donation, :phone].each do |attr|
+    [:name, :ic_number, :doj, :donation].each do |attr|
       it "requires #{attr}" do
         params = valid_params.merge(attr => "")
-        Member.new(params).valid?.should be_false
+        m = Member.new(params)
+        m.build_address(addr_params)
+
+        m.valid?.should be_false
+        m.errors.messages.should have_key(attr)
       end
     end
 
     it "requires address" do
-      params = valid_params.delete(:address)
-      Member.new().valid?.should be_false
+      m = Member.new(valid_params)
+      m.valid?.should be_false
+      m.errors.messages.should have_key(:address)
+    end
+
+    it "requires valid address" do
+      m = Member.new(valid_params)
+      m.build_address({:line1 => "", :postcode => ""})
+
+      m.valid?.should be_false
     end
   end
 end

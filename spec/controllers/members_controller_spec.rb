@@ -1,42 +1,46 @@
 require 'spec_helper'
 
 describe MembersController do
-
-  let(:valid_member_params) {{
-    :name => "Dania",
-    :ic_number => "123",
-    :doj => "30/01/1970",
-    :phone => "9999",
-    :donation => 20,
-    :doj => "30/01/1970",
-    "family_members_attributes" => {
-      "0"=>{"name"=>"Mustafa"},
-    }
-  }}
-  let (:valid_addr_params) {{
-    :line1 => "Foo St"
-  }}
-
   describe "POST create" do
-    def do_create_with_member_params(params)
-      post :create, { 
-        :member => params,
-        :address => valid_addr_params
+    let(:basic_member_params) {{
+      :name => "Dania",
+      :ic_number => "123",
+      :doj => "30/01/1970",
+      :phone => "9999",
+      :donation => 20,
+      :doj => "30/01/1970",
+    }}
+    let(:member_params) { basic_member_params }
+    let (:addr_params) {{
+      :line1 => "Foo St",
+      :postcode => "pc123"
+    }}
+    def do_action
+      post :create, {
+        :member => member_params,
+        :address => addr_params
       }
     end
 
-    it "ignores blank family member fields" do
-      do_create_with_member_params valid_member_params.merge({
-        "family_members_attributes" => {
-          "0"=>{"name"=>"Mustafa"},
-          "1"=>{"name"=>""},
-          "2"=>{"name"=>""},
-        },
-      })
+    it "creates a member" do
+      expect{ do_action }.to change { Member.count }
+    end
 
-      family_members = assigns(:member).family_members
-      family_members.count.should  == 1
-      family_members.first.name.should == "Mustafa"
+    context "not all family member fields are filled out" do
+      let(:member_params) {
+        basic_member_params.merge({
+          "family_members_attributes" => {
+            "0"=>{"name"=>"Mustafa"},
+            "1"=>{"name"=>""},
+            "2"=>{"name"=>""},
+          }
+        })
+      }
+
+      it "saves only the non-blank ones" do
+        do_action
+        Member.last.family_members.count.should  == 1
+      end
     end
   end
 end

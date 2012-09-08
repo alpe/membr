@@ -44,7 +44,7 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    params[:member][:family_members_attributes].delete_if { |num,fm| fm[:name].blank? }
+    delete_blank_family_member_fields(params)
     @member = Member.new(params[:member])
     @member.build_address(params[:address])
 
@@ -57,6 +57,12 @@ class MembersController < ApplicationController
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def delete_blank_family_member_fields(params)
+    fm_attributes = params[:member][:family_members_attributes]
+    fm_attributes ||= {}
+    fm_attributes.delete_if { |num,fm| fm[:name].blank? }
   end
 
   # PUT /members/1
