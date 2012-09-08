@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+body {
+  /* background:url('/assets/grid_noise.png'); */
+  background-color: HoneyDew;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+a {
+  color: ForestGreen;
+}

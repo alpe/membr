@@ -1,4 +1,6 @@
 - validations - DONE
+- main page with tabs
+- make ic unique
 - add pintar plus to edit form
 - add home phone, hand phone
 - date joined (pre-populate with today)
