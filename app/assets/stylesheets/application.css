@@ -21,3 +21,8 @@ body {
 a {
   color: ForestGreen;
 }
+
+h1 {
+  font-size: 28px;
+  line-height: 34px;
+}
