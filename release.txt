@@ -1,17 +1,18 @@
 - validations - DONE
-- main page with tabs
+- main page with tabs - DONE
 - make ic unique
 - add pintar plus to edit form
 - add home phone, hand phone
 - date joined (pre-populate with today)
 - add remarks
+- find by ic number
 - membership number starting from
 - import
 - export
 - login
-- search by ic number
 - edit/delete
 - update address and keep address history
+- make it work for mobile layout
 - inactive/active
 - export include active
 - save donation as cents and display as money

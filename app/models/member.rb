@@ -5,4 +5,5 @@ class Member < ActiveRecord::Base
   accepts_nested_attributes_for :family_members, :allow_destroy => true
 
   validates_presence_of :name, :ic_number, :doj, :donation, :address
+  validates_uniqueness_of :ic_number
 end

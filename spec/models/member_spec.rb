@@ -43,5 +43,15 @@ describe Member do
 
       m.valid?.should be_false
     end
+
+    it "requires ic number to be unique" do
+      m = Member.new(valid_params)
+      m.build_address(addr_params)
+      m.save!
+
+      m = Member.new(valid_params)
+      m.build_address(addr_params)
+      m.valid?.should be_false
+    end
   end
 end
