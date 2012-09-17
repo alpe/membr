@@ -35,5 +35,7 @@
     .field
       = ff.label :name, "Pintar Plus"
       = ff.text_field :name
+      = ff.link_to_remove "Remove"
+  = f.link_to_add "Add Pintar", :family_members
   .actions
   = f.submit 'Save'

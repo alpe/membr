@@ -26,9 +26,6 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.build_address
-    5.times do
-      @member.family_members.build
-    end
 
     respond_to do |format|
       format.html # new.html.erb
