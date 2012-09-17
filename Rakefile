@@ -6,4 +6,6 @@ require File.expand_path('../config/application', __FILE__)
 
 Membr::Application.load_tasks
 
+task :default => [:spec, :cucumber]
+
 task :c => :cucumber

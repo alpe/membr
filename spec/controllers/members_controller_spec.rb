@@ -6,7 +6,7 @@ describe MembersController do
       :name => "Dania",
       :ic_number => "123",
       :doj => "30/01/1970",
-      :phone => "9999",
+      :hand_phone => "9999",
       :donation => 20,
       :doj => "30/01/1970",
     }}

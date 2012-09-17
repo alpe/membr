@@ -7,7 +7,7 @@ Feature: Manage members
       | ic_number | 12345         |
       | doj       | 30/01/1970    |
       | donation  | 20            |
-      | phone     | 9887 3434     |
+      | hand_phone| 9887 3434     |
       | line1     | Blk 35 Mandalay Road      |
       | line2     | # 13–37 Mandalay Towers   |
       | postcode  | 308215                    |

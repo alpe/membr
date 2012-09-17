@@ -2,7 +2,8 @@
 - main page with tabs - DONE
 - make ic unique - DONE
 - add pintar plus to edit form - DONE
-- add home phone, hand phone
+- add hand phone - DONE
+- add home phone
 - date joined (pre-populate with today)
 - add remarks
 - find by ic number
@@ -19,3 +20,4 @@
 - export include active
 - save donation as cents and display as money
 - add hint for date format
+- add build with travis
