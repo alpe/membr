@@ -7,6 +7,7 @@ describe Member do
       :ic_number => "123",
       :doj => "30/01/1970",
       :hand_phone => "9999",
+      :home_phone => "+49 8888",
       :donation => 20,
     }}
     let (:addr_params) {{

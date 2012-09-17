@@ -13,7 +13,7 @@ end
 
 When /^I add a new member with details:$/ do |table|
   @data = table.rows_hash
-  [ :name, :ic_number, :doj, :donation, :hand_phone,
+  [ :name, :ic_number, :doj, :donation, :hand_phone, :home_phone,
     :family_members_attributes_0_name,
     :family_members_attributes_1_name,
   ].each do |attr|
