@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  attr_accessible :name, :ic_number, :doj, :donation, :hand_phone, :home_phone, :family_members_attributes
+  attr_accessible :name, :ic_number, :doj, :donation, :hand_phone, :home_phone, :family_members_attributes, :remarks
   has_one :address, :validate => true
   has_many :family_members
   accepts_nested_attributes_for :family_members, :allow_destroy => true

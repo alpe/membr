@@ -24,6 +24,9 @@
   = @member.address.line2
   = @member.address.postcode
 %p
+  %b Remarks:
+  = @member.remarks
+%p
   %b Family Members:
   = @member.family_members.map(&:name).join(", ")
 

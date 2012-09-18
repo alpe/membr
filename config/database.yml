@@ -2,6 +2,8 @@ development:
   adapter: postgresql
   database: membr_development
   host: localhost
+  username: rails
+  password: password
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -10,6 +12,8 @@ test: &test
   adapter: postgresql
   database: membr_test
   host: localhost
+  username: rails
+  password: password
 
 production:
   adapter: sqlite3
