@@ -25,12 +25,9 @@ class MembersController < ApplicationController
   # GET /members/new.json
   def new
     @member = Member.new
+    @member.doj = Date.today
     @member.build_address
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @member }
-    end
   end
 
   # GET /members/1/edit

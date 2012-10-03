@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "members/new" do
-  let(:member) { Member.new }
+  let(:member) { Member.new(:doj => '30/01/2000') }
   before do
     member.build_address
     assign(:member, member)

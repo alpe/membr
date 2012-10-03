@@ -14,7 +14,7 @@
     = f.text_field :ic_number
   .field
     = f.label :doj, "D.O.J"
-    = f.text_field :doj
+    = f.text_field :doj, :value => l(@member.doj) 
   .field
     = f.label :donation
     = f.text_field :donation

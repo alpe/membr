@@ -3,8 +3,8 @@
 - make ic unique - DONE
 - add pintar plus to edit form - DONE
 - add hand phone - DONE
-- add home phone
-- date joined (pre-populate with today)
+- add home phone - DONE
+- date joined (pre-populate with today) - DONE
 - add remarks
 - find by ic number
 - membership number starting from ..
