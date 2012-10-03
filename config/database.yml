@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   database: membr_development
   host: localhost
+  username: rails
   password: password
 
 # Warning: The database defined as "test" will be erased and
@@ -11,6 +12,8 @@ test: &test
   adapter: postgresql
   database: membr_test
   host: localhost
+  username: rails
+  password: password
 
 production:
   adapter: sqlite3
