@@ -2,32 +2,32 @@
 
 %p
   %b Name:
-  = @member.name
+  = member.name
 %p
   %b Ic number:
-  = @member.ic_number
+  = member.ic_number
 %p
   %b D.O.J:
-  = l @member.doj
+  = l member.doj
 %p
   %b Donation:
-  = @member.donation
+  = member.donation
 %p
   %b Hand Phone:
-  = @member.hand_phone
+  = member.hand_phone
 %p
   %b Home Phone:
-  = @member.home_phone
+  = member.home_phone
 %p
   %b Address:
-  = @member.address.line1
-  = @member.address.line2
-  = @member.address.postcode
+  = member.address.line1
+  = member.address.line2
+  = member.address.postcode
 %p
   %b Remarks:
-  = @member.remarks
+  = member.remarks
 %p
   %b Family Members:
-  = @member.family_members.map(&:name).join(", ")
+  = member.family_members.map(&:name).join(", ")
 
-= link_to 'Edit', edit_member_path(@member)
+= link_to 'Edit', edit_member_path(member)

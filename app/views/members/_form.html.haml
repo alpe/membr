@@ -1,16 +1,16 @@
 %hr
-= simple_nested_form_for @member, :html => { :class => 'form-horizontal' } do |f|
-  -if @member.errors.any?
+= simple_nested_form_for member, :html => { :class => 'form-horizontal' } do |f|
+  -if member.errors.any?
     #error_explanation
-      %h2.alert.alert-error= "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved"
+      %h2.alert.alert-error= "#{pluralize(member.errors.count, "error")} prohibited this member from being saved"
 
   = f.input :name
   = f.input :ic_number, :label =>'I/C Number'
-  = f.input :doj, :value => l(@member.doj), :as => :string
+  = f.input :doj, :value => l(member.doj), :as => :string
   = f.input :donation, :as => :string
   = f.input :hand_phone
   = f.input :home_phone
-  = simple_fields_for @member.address do |af|
+  = simple_fields_for member.address do |af|
     = af.input :line1, :label =>'Addr Line 1'
     = af.input :line2, :label=>'Addr Line 2'
     = af.input :postcode
