@@ -1,47 +1,26 @@
-= nested_form_for @member do |f|
+%hr
+= simple_nested_form_for @member, :html => { :class => 'form-horizontal' } do |f|
   -if @member.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved:"
-      %ul
-        - @member.errors.full_messages.each do |msg|
-          %li= msg
+      %h2.alert.alert-error= "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved"
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :ic_number, "I/C Number"
-    = f.text_field :ic_number
-  .field
-    = f.label :doj, "D.O.J"
-    = f.text_field :doj, :value => l(@member.doj) 
-  .field
-    = f.label :donation
-    = f.text_field :donation
-  .field
-    = f.label :hand_phone
-    = f.text_field :hand_phone
-  .field
-    = f.label :home_phone
-    = f.text_field :home_phone
-  = fields_for @member.address do |af|
-    .field
-      = af.label :line1, "Addr Line 1"
-      = af.text_field :line1
-    .field
-      = af.label :line2, "Addr Line 2"
-      = af.text_field :line2
-    .field
-      = af.label :postcode
-      = af.text_field :postcode
-    .field
-      = f.label :remarks
-      = f.text_area :remarks, :size => "70x12"
-  = f.fields_for :family_members do |ff|
-    .field
-      = ff.label :name, "Pintar Plus"
-      = ff.text_field :name
-      = ff.link_to_remove "Remove"
+  = f.input :name
+  = f.input :ic_number, :label =>'I/C Number'
+  = f.input :doj, :value => l(@member.doj), :as => :string
+  = f.input :donation, :as => :string
+  = f.input :hand_phone
+  = f.input :home_phone
+  = simple_fields_for @member.address do |af|
+    = af.input :line1, :label =>'Addr Line 1'
+    = af.input :line2, :label=>'Addr Line 2'
+    = af.input :postcode
+    = f.input :remarks, :input_html =>{:size => "70x12"}, :as => :text
+  = f.simple_fields_for :family_members do |ff|
+    .row
+      .span4
+        = ff.input :name, :label => 'Pintar Plus'
+      .span1.btn.btn-small
+        = ff.link_to_remove "Remove"
   = f.link_to_add "Add Pintar", :family_members
-  .actions
-  = f.submit 'Save'
+  .form-actions
+    = f.submit 'Save', :class => 'btn btn-primary'
